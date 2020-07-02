@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request #import objects from the Flask model
 from flask_cors import CORS
 import threading
 import requests
+import os
 
 app = Flask(__name__) #define app using Flask
 CORS(app)
@@ -74,4 +75,5 @@ def getCountryNews():
     return response.json()
 
 if __name__ == '__main__':
-	app.run(debug=True) #run app on port 8080 in debug mode
+    port = int(os.environ.get("PORT", 5000))
+	app.run(debug=True, host='0.0.0.0', port=port) #run app on port 8080 in debug mode
