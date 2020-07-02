@@ -55,7 +55,7 @@ def myApiCall():
     setData(response)
     test = "Getting data from external API"
     print(test)
-    threading.Timer(600, myApiCall).start()
+    threading.Timer(60000, myApiCall).start()
 myApiCall()
 
 @app.route('/', methods=['GET'])
