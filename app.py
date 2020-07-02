@@ -2,14 +2,12 @@ from flask import Flask, jsonify, request #import objects from the Flask model
 from flask_cors import CORS
 import threading
 import requests
-import os
 
 app = Flask(__name__) #define app using Flask
 CORS(app)
 
 def setData(allData):
     global globalData
-    globalData = []
     data = []
     tempActive = 0
     tempConfirmed = 0
@@ -60,6 +58,10 @@ def myApiCall():
     threading.Timer(600, myApiCall).start()
 myApiCall()
 
+@app.route('/', methods=['GET'])
+def test():
+	return jsonify({'message' : 'Test Working'})
+
 @app.route('/allData/', methods=['GET'])
 def all():
     global globalData
@@ -75,5 +77,4 @@ def getCountryNews():
     return response.json()
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-	app.run(debug=True, host='0.0.0.0', port=port) #run app on port 8080 in debug mode
+	app.run(debug=True) #run app on port 8080 in debug mode
