@@ -77,4 +77,4 @@ def getCountryNews():
     return response.json()
 
 if __name__ == '__main__':
-	app.run(debug=False) #run app on port 8080 in debug mode
+	app.run() #run app on port 8080 in debug mode
