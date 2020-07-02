@@ -7,7 +7,8 @@ app = Flask(__name__) #define app using Flask
 CORS(app)
 
 def setData(allData):
-    global globalData = []
+    global globalData
+    globalData = []
     data = []
     tempActive = 0
     tempConfirmed = 0
