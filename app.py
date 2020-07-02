@@ -59,10 +59,6 @@ def myApiCall():
     threading.Timer(600, myApiCall).start()
 myApiCall()
 
-@app.route('/', methods=['GET'])
-def test():
-	return jsonify({'message' : 'Test Working'})
-
 @app.route('/allData/', methods=['GET'])
 def all():
     global globalData
